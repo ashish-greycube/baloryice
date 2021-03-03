@@ -1,0 +1,31 @@
+{
+ "add_total_row": 1,
+ "creation": "2021-03-03 15:25:07.328795",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "\u0631\u0623\u0633 \u0627\u0644\u0631\u0633\u0627\u0644\u0629 \u0644\u0623\u062c\u0648\u0627\u062f \u0627\u0644\u0634\u0631\u0642",
+ "modified": "2021-03-03 19:09:15.413529",
+ "modified_by": "Administrator",
+ "module": "Baloryice",
+ "name": "Sales Partner Itemwise Profit",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Sales Invoice",
+ "report_name": "Sales Partner Itemwise Profit",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Sales User"
+  }
+ ]
+}

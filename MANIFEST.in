@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include baloryice *.css
+recursive-include baloryice *.csv
+recursive-include baloryice *.html
+recursive-include baloryice *.ico
+recursive-include baloryice *.js
+recursive-include baloryice *.json
+recursive-include baloryice *.md
+recursive-include baloryice *.png
+recursive-include baloryice *.py
+recursive-include baloryice *.svg
+recursive-include baloryice *.txt
+recursive-exclude baloryice *.pyc
