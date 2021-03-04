@@ -18,18 +18,10 @@ def get_data(filters=None):
 
     from erpnext.accounts.report.gross_profit.gross_profit import execute
 
-    gp_columns, gp_data = execute(filters)
-    fields = [
-        frappe.scrub(d.split(":")[0])
-        if isinstance(d, string_types)
-        else d.get("fieldname")
-        for d in gp_columns
-    ] + ["sales_partner"]
-
-    sales_partners = frappe.db.sql(
+    invoices = frappe.db.sql(
         """
     select 
-        si.name sales_invoice, sales_partner
+        si.name sales_invoice, si.sales_partner, si.company
     from 
         `tabSales Invoice` si
     where 
@@ -40,7 +32,23 @@ def get_data(filters=None):
         filters,
         as_dict=True,
     )
-    sales_partners = {d["sales_invoice"]: d["sales_partner"] for d in sales_partners}
+    companies = set([d.company for d in invoices])
+    sales_partners = {d["sales_invoice"]: d["sales_partner"] for d in invoices}
+
+    gp_columns, gp_data = [], []
+
+    for d in companies:
+        filters["company"] = d
+        gp_columns, _data = execute(filters)
+        gp_data = gp_data + _data
+
+    fields = [
+        frappe.scrub(d.split(":")[0])
+        if isinstance(d, string_types)
+        else d.get("fieldname")
+        for d in gp_columns
+    ] + ["sales_partner"]
+
     for d in gp_data:
         d.append(sales_partners.get(d[0]))
 
