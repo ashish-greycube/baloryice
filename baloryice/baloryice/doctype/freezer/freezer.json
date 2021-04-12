@@ -1,0 +1,215 @@
+{
+ "autoname": "field:freezer_no",
+ "creation": "2021-04-12 15:41:16.472209",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "freezer_no",
+  "freezer_barcode",
+  "type_of_freezer",
+  "customer_name",
+  "customer_code",
+  "customer_group",
+  "cb_1",
+  "qty",
+  "ice_capacity",
+  "owner_national_id",
+  "customer_detail",
+  "person_in_charge",
+  "mobile_no",
+  "cr_no",
+  "section_break_15",
+  "freezer_location"
+ ],
+ "fields": [
+  {
+   "fieldname": "freezer_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Freezer No",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "freezer_barcode",
+   "fieldtype": "Barcode",
+   "label": "Freezer_Barcode"
+  },
+  {
+   "fieldname": "type_of_freezer",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type of Freezer",
+   "options": "American\nGerman"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer_name.customer_code_cf",
+   "fieldname": "customer_code",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Code"
+  },
+  {
+   "fieldname": "owner_national_id",
+   "fieldtype": "Data",
+   "label": "Owner National ID"
+  },
+  {
+   "fieldname": "person_in_charge",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Person In Charge"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty"
+  },
+  {
+   "fieldname": "ice_capacity",
+   "fieldtype": "Int",
+   "label": "Ice Capacity"
+  },
+  {
+   "fetch_from": "customer_name.customer_group",
+   "fieldname": "customer_group",
+   "fieldtype": "Read Only",
+   "label": "Customer Group"
+  },
+  {
+   "fieldname": "customer_detail",
+   "fieldtype": "Data",
+   "label": "Customer Detail"
+  },
+  {
+   "fieldname": "cr_no",
+   "fieldtype": "Data",
+   "label": "CR No"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "freezer_location",
+   "fieldtype": "Geolocation",
+   "label": "Freezer Location"
+  }
+ ],
+ "modified": "2021-04-12 15:44:44.266575",
+ "modified_by": "Administrator",
+ "module": "Baloryice",
+ "name": "Freezer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Item Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
