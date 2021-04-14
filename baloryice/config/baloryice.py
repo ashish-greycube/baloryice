@@ -6,6 +6,16 @@ import frappe
 def get_data():
     config = [
         {
+            "label": _("Documents"),
+            "items": [
+                {
+                    "type": "doctype",
+                    "name": "Freezer",
+                    "description": _("Freezer"),
+                },
+            ],
+        },
+        {
             "label": _("Reports"),
             "items": [
                 {
