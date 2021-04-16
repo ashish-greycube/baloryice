@@ -3,7 +3,6 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-
 import frappe
 from frappe import _
 from frappe.utils import cint
@@ -59,3 +58,23 @@ def get_haversine(user_coords, freezer):
     d = sin(lat * 0.5) ** 2 + cos(lat1) * cos(lat2) * sin(lng * 0.5) ** 2
 
     return round(2 * _AVG_EARTH_RADIUS_M * asin(sqrt(d)))
+
+
+def after_migrate():
+    from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
+
+    custom_fields = {
+        "Sales Invoice": [
+            dict(
+                fieldtype="Data",
+                fieldname="user_location_cf",
+                hidden=1,
+                label="User Location",
+                insert_after="invoice_type_cf",
+                translatable=0,
+                description="Coords of user location on save (if geolocation is enabled on users device)",
+            ),
+        ]
+    }
+
+    create_custom_fields(custom_fields)

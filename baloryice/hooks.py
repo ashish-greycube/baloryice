@@ -56,6 +56,7 @@ doctype_js = {"Sales Invoice": "public/js/sales_invoice_custom.js"}
 
 # before_install = "baloryice.install.before_install"
 # after_install = "baloryice.install.after_install"
+after_migrate = "baloryice.hooks_controller.after_migrate"
 
 # Desk Notifications
 # ------------------
