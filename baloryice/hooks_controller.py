@@ -19,8 +19,12 @@ def sales_invoice_validate(doc, method=None):
             "Customer", doc.customer, "is_freezer_location_verification_mandatory_cf"
         )
     ):
-        if not doc.user_location_cf or not doc.freezer_cf:
-            frappe.throw(_("User location and Freezer location is required."))
+        if not doc.user_location_cf:
+            frappe.throw(_("User location is required."))
+        if not doc.freezer_cf:
+            frappe.throw(
+                _("Freezer location is required for {}.").format(doc.freezer_cf)
+            )
 
         distance = get_haversine(doc.user_location_cf, doc.freezer_cf)
         if distance > 250:
