@@ -10,6 +10,8 @@ frappe.ui.form.on("Sales Invoice", {
   },
 
   validate: function (frm) {
+    // return Promise.resolve();
+
     return new Promise((resolve, reject) => {
       let coords;
 
@@ -38,6 +40,8 @@ frappe.ui.form.on("Sales Invoice", {
                 }
               );
             }
+          } else {
+            resolve();
           }
         }
       );
