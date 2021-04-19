@@ -27,7 +27,7 @@ def sales_invoice_validate(doc, method=None):
             )
 
         distance = get_haversine(doc.user_location_cf, doc.freezer_cf)
-        if distance > 250:
+        if distance > 100:
             frappe.throw(
                 _(
                     "Freezer Location is not same as your location. You are {}m away from the Freezer."
