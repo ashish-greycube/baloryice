@@ -1,0 +1,65 @@
+{% block page_content %}
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: whitesmoke;
+    }
+
+    /* it has no impact */
+    /* @media screen {
+		.print-format {
+			width: 1.10236in;
+			min-height: 2.00787in;
+			padding: 0in;
+			margin: auto;
+		}
+	*/
+    @media print {
+        .print-format p {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+
+    .barcode {
+        /* width: 200px;
+        height: 73px;
+        object-fit: contain; */
+        margin: 0px;
+        padding: 0px
+    }
+
+    img {
+        margin: 0px;
+        padding-left: 0px;
+    }
+</style>
+
+{% macro render_barcode(barcode) %}
+{% if barcode %}
+{% set params = "&code=code128&margin=0.5&height=6&write_text=0"%}
+<img class="barc ode" alt="{{barcode}}"
+    src="{{frappe.get_url()}}/api/method/baloryice.baloryice.barcode.get_barcode?barcode_text={{barcode}}{{params}}"></img>
+{% endif %}
+{% endmacro %}
+
+<!-- content -->
+<div id="header-html">
+    <!-- empty place holder to remove top-marging in pdf -->
+</div>
+<div style="text-align: center;">
+    {{render_barcode(doc.item_code)}}
+    <div style="font-size: 20px;">
+        {{doc.item_code}} <br>
+        {{doc.item_name}} <br>
+    </div>
+
+</div>
+<div id="footer-html">
+    <!-- empty place holder to remove bottom-marging in pdf -->
+</div>
+<!-- end content -->
+
+
+{% endblock %}
