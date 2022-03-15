@@ -11,6 +11,8 @@
   "customer_name",
   "customer_code",
   "customer_group",
+  "freezer_google_location_url",
+  "set_freezer_location",
   "cb_1",
   "qty",
   "ice_capacity",
@@ -116,9 +118,19 @@
    "fieldname": "freezer_location",
    "fieldtype": "Geolocation",
    "label": "Freezer Location"
+  },
+  {
+   "fieldname": "freezer_google_location_url",
+   "fieldtype": "Small Text",
+   "label": "Freezer Google Location URL"
+  },
+  {
+   "fieldname": "set_freezer_location",
+   "fieldtype": "Button",
+   "label": "Set Freezer Location"
   }
  ],
- "modified": "2021-04-13 06:10:42.874082",
+ "modified": "2022-03-15 13:26:16.123725",
  "modified_by": "Administrator",
  "module": "Baloryice",
  "name": "Freezer",
